@@ -1,0 +1,245 @@
+
+<!DOCTYPE html >
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Favicon SORETRAS-->
+        <link rel="icon" type="image/png" href="company_logo_round.png" />
+        <title> Jeu de cartes </title> 
+        <style>
+          
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        li {
+          float: left;
+        }
+        
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        li a:hover:not(.active) {
+          background-color: #111;
+        }
+        
+        .active {
+          background-color: #04AA6D;
+        }
+
+       
+
+.container {
+          display: table;
+          width: 100%;
+        }
+
+        .table-row {
+          display: table-row;
+          height: 100px;
+
+        }
+
+        .table-cell {
+          border: 1px solid;
+          background: #000000;
+          display: table-cell;
+          
+        }
+
+        body {
+            background: lightgray;
+            
+        }
+
+        div.jeu {
+   height: 520px;
+   width:  520px;
+   margin: 2em auto 2em auto;
+ }
+
+div.case {
+  height: 100px;
+  width:  100px;
+  border: 1px solid black;
+  float: left;
+ margin: 10px;
+ 
+}
+ img {
+   height: 100px;
+  width:  100px;
+  
+ }
+
+hr {
+   clear: both;
+   visibility: hidden;
+ }
+
+        </style>
+<script>
+  const initial=["autruche.jpg", "chat.jpg", "chien.jpg", "elephant.jpg","grenouille.jpg", "lapin.jpg", "lion.jpg","souris.jpg",
+                ];
+const images = [];
+const count=[0,0,0,0,0,0,0,0];
+let nbclic=0;
+let firstid,secondid,s1=0,s2=0,tour=1;
+
+  function fillimage(){
+    for(let i=0;i<initial.length*2;i++){
+      let tir;
+      while (true) {
+       tir=Math.floor(Math.random() * initial.length);
+      if(count[tir]<2) {
+        count[tir]++;
+        
+         images[i]= initial[tir];
+         console.log("tir=",tir," count= ",count, " image= ",images);
+         break;
+      }
+       
+      }
+    }
+  }
+  function clic(){
+    nbclic++;
+    document.getElementById(event.target.id).src="images/"+images[event.target.id];
+    if (nbclic==1){
+      firstid=event.target.id;
+    }
+    else{
+      secondid=event.target.id;
+      if(images[firstid]!=images[secondid]){
+        setTimeout('hidephotos();',500);
+            }
+      else{
+        if(tour==1){
+          s1+=1;
+          document.getElementById("j1").innerHTML=s1;
+        }
+        else{
+          s2+=1;
+          document.getElementById("j2").innerHTML=s2;
+        }
+      }
+      nbclic=0;
+        
+    }
+}
+function hidephotos(){
+  document.getElementById(firstid).src="back.png";
+  document.getElementById(secondid).src="back.png";
+  if(tour==1){
+    tour=2;
+  } else{
+    tour=1;
+  }
+  document.getElementById("tour").innerHTML=tour;       
+}
+function reset(){
+  s1=0;
+  s2=0;
+  tour=1;
+  document.getElementById("j1").innerHTML=s1;
+  document.getElementById("j2").innerHTML=s2;
+  document.getElementById("tour").innerHTML=tour;       
+
+}
+fillimage();
+</script>
+        
+        </head>
+        <body>
+    
+   
+    
+    <a href="https://soretras.com.tn" target="_blank"><img src="logo.png" style="margin-left: 50px; margin-top: 50px;"></a>
+    <img src="tunisie.png" style="margin-left: 1170px; margin-top: 50px;">
+
+    <ul>
+        <li><a href="index.html">Acceuil</a></li>
+        <li><a href="product.html">Programme</a></li>
+        <li><a href="convertCelToFahr.html">Exercice 1</a></li>
+        <li><a class="active" href="jeudecartes.html">Exercice 2</a></li>
+        <li><a href="quadraticequation.html">Exercice 3</a></li>
+        <li><a href="TicTacToe.html">Exercice 4</a></li>
+        <li><a href="calculatrice.html">Exercice 5</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    
+      </ul>
+
+    <div id="entete">
+    
+    <img  class="video_entete" src="background_soretras.jpg" width="100%"/> 
+    
+</div>
+
+<h1 style="text-align: center;">Jeu de mémoire avec les cartes</h1>
+
+<h3 style="text-align: center;">Joueur 1 : Mohamed</h3><p id="j1"></p>
+<h3 style="text-align: center;">Joueur 2 : Ordinateur</h3><p id="j2"></p>
+<h3 style="text-align: center;">Maintenant le tour de :<span id="tour"></span></h3>
+<h3 style="text-align: center;">Score de <span id="tour"></span> : <span id="score"></span></h3>
+ <div class="jeu">
+ <div class="case" onclick="clic();"><img id="0"  src="back.png"       /></div>
+ <div class="case" onclick="clic();"><img id="1"  src="back.png"       /></div>
+ <div class="case" onclick="clic();"><img id="2"  src="back.png"      /></div>
+ <div class="case" onclick="clic();"><img id="3"  src="back.png"      /></div>
+ <hr />
+ <div class="case" onclick="clic();"><img id="4"  src="back.png" /></div>
+ <div class="case" onclick="clic();"><img id="5"  src="back.png" /></div>
+ <div class="case" onclick="clic();"><img id="6"  src="back.png"   /></div>
+ <div class="case" onclick="clic();"><img id="7"  src="back.png"   /></div>
+ <hr />
+ <div class="case" onclick="clic();"><img id="8"  src="back.png"     /></div>
+ <div class="case" onclick="clic();"><img id="9" src="back.png"    /></div>
+ <div class="case" onclick="clic();"><img id="10" src="back.png"  /></div>
+ <div class="case" onclick="clic();"><img id="11" src="back.png"  /></div>
+ <hr />
+ <div class="case" onclick="clic();"><img id="12" src="back.png"    /></div>
+ <div class="case" onclick="clic();"><img id="13" src="back.png"   /></div>
+ <div class="case" onclick="clic();"><img id="14" src="back.png"     /></div>
+ <div class="case" onclick="clic();"><img id="15" src="back.png"     /></div>
+ </div>
+
+
+
+</body>
+
+<footer class="container">
+    <div class="table-row">
+      <div class="table-cell">
+        <address style="color: white;">
+          Soretras (Siège Social):<br>
+          Route Menzel Chaker Km 0,5 Rue Mouna<br>
+          Sfax - Tunisie <br>
+          Tél. : (+216) 74 240 754
+  
+        </address>
+       
+        <a href="https://www.facebook.com/soretras/">
+          <img src="icon-facebook.png" alt="facebook" width="50px" height="50px" style="margin-left: 80%;">
+        </a>
+        <a href="https://www.instagram.com/">
+          <img src="icon-insta.jpg" alt="facebook" width="50px" height="50px">
+        </a>
+        <a href="https://twitter.com/">
+          <img src="icon-twitter.jpg" alt="facebook" width="50px" height="50px">
+        </a>
+     
+      </div>
+    </div>
+  
+  </footer>
+
+</html>

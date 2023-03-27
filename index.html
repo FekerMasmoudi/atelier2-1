@@ -1,8 +1,42 @@
 
 <!DOCTYPE html >
-<html lang="en" charest="UTF-8">
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <!-- Favicon SORETRAS-->
+        <link rel="icon" type="image/png" href="company_logo_round.png" /> 
+        <title> Acceuil </title>
         <style>
+          input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
         ul {
           list-style-type: none;
           margin: 0;
@@ -30,6 +64,30 @@
         .active {
           background-color: #04AA6D;
         }
+
+        .container {
+          display: table;
+          width: 100%;
+        }
+
+        .table-row {
+          display: table-row;
+          height: 100px;
+
+        }
+
+        .table-cell {
+          border: 1px solid;
+          background: #000000;
+          display: table-cell;
+          
+        }
+
+        body {
+            background: lightgray;
+            
+        }
+
         </style>
         </head>
 <body>
@@ -42,6 +100,11 @@
     <ul>
         <li><a class="active" href="index.html">Acceuil</a></li>
         <li><a href="product.html">Programme</a></li>
+        <li><a href="convertCelToFahr.html">Exercice 1</a></li>
+        <li><a href="jeudecartes.html">Exercice 2</a></li>
+        <li><a href="quadraticequation.html">Exercice 3</a></li>
+        <li><a href="TicTacToe.html">Exercice 4</a></li>
+        <li><a href="calculatrice.html">Exercice 5</a></li>
         <li><a href="contact.html">Contact</a></li>
     
       </ul>
@@ -61,10 +124,31 @@
 </div>
  
 
-<div id="articles">
 
-
-
-</div>
 </body>
+<footer class="container">
+  <div class="table-row">
+    <div class="table-cell">
+      <address style="color: white;">
+        Soretras (Siège Social):<br>
+        Route Menzel Chaker Km 0,5 Rue Mouna<br>
+        Sfax - Tunisie <br>
+        Tél. : (+216) 74 240 754
+
+      </address>
+     
+      <a href="https://www.facebook.com/soretras/">
+        <img src="icon-facebook.png" alt="facebook" width="50px" height="50px" style="margin-left: 80%;">
+      </a>
+      <a href="https://www.instagram.com/">
+        <img src="icon-insta.jpg" alt="facebook" width="50px" height="50px">
+      </a>
+      <a href="https://twitter.com/">
+        <img src="icon-twitter.jpg" alt="facebook" width="50px" height="50px">
+      </a>
+   
+    </div>
+  </div>
+
+</footer>
 </html>
